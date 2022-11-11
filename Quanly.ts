@@ -6,15 +6,13 @@ import {TaiLieu} from "./tailieu";
 
 class QuanLy {
 
-    static listTaiLieu:any [] = [];
-
-
+    static listTaiLieu: any [] = [];
 
 
     constructor() {
     }
 
-    static add(taiLieu:any): void {
+    static add(taiLieu: any): void {
         QuanLy.listTaiLieu.push(taiLieu)
     }
 
@@ -33,7 +31,7 @@ class QuanLy {
         QuanLy.display()
     }
 
-    static find(ten:string): void {
+    static find(ten: string): void {
 
 
         for (let i = 0; i < QuanLy.listTaiLieu.length; i++) {
@@ -44,44 +42,52 @@ class QuanLy {
     }
 
 
-
-    static find1(a:string) {
+    static find1(a: string) {
 
 
         for (let i of this.listTaiLieu) {
-            if ( a  === i.Bao){
+            if (a === i.Bao) {
                 console.table(i)
             }
-            if ( a  === i.Sach){
+            if (a === i.Sach) {
                 console.table(i)
             }
-            if ( a  === i.TapChi){
+            if (a === i.TapChi) {
                 console.table(i)
             }
-
 
 
         }
     }
+
+
+    static edit(id:number,object:TaiLieu){
+        for (let i = 0; i < this.listTaiLieu.length; i++){
+            if ( this.listTaiLieu[i].maTaiLieu === id){
+                this.listTaiLieu[i] =object
+            }
+        }
+        return this.display()
+    }
 }
 
 
-let truyen:Sach = new Sach(1, 'Lộc', 10, 'Vietnam', 100,'toan')
-let truyen1:Sach = new Sach(10, 'Tú', 90, 'Vietnam', 100,'toan')
-let bao: TapChi = new TapChi(2, 'Kỳ', 20, '10', 50,'văn')
-let bao1: TapChi = new TapChi(5, 'Nam', 100, '10', 50,'văn')
-let tapchi: Bao = new Bao(3, 'Kỳ', 20, '30','lý')
-let tapchi1: Bao = new Bao(4, 'Kỳ', 50, '20','lý')
+// let truyen: Sach = new Sach(1, 'Lộc', 10, 'Vietnam', 100, 'toan')
+// let truyen1: Sach = new Sach(10, 'Tú', 90, 'Vietnam', 100, 'hóa')
+// let bao: TapChi = new TapChi(2, 'Kỳ', 20, '10', 50, 'văn')
+// let bao1: TapChi = new TapChi(5, 'Nam', 100, '10', 50, 'sử')
+// let tapchi: Bao = new Bao(3, 'Kỳ', 20, '30', 'lý')
+// let tapchi1: Bao = new Bao(4, 'Kỳ', 50, '20', 'địa')
+// let tapchi2: Bao = new Bao(4, 'Linh', 40, '20', 'sinh')
 
-QuanLy.add(truyen);
-QuanLy.add(bao);
-QuanLy.add(tapchi);
-QuanLy.add(tapchi1);
-QuanLy.add(bao1);
-QuanLy.add(truyen1);
-QuanLy.display()
-console.log('xóa nhé')
-QuanLy.delete(1);
-
-QuanLy.find('toan')
-QuanLy.find1('tapchi')
+// QuanLy.add(truyen);
+// QuanLy.add(bao);
+// QuanLy.add(tapchi);
+// QuanLy.add(tapchi1);
+// QuanLy.add(bao1);
+// QuanLy.add(truyen1);
+// QuanLy.display()
+//  QuanLy.delete(10);
+// QuanLy.find('lý')
+//  QuanLy.find1('sach')
+// QuanLy.edit(1,tapchi2)
